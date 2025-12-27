@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: {
+                light: '#fafaf9',
+                dark: '#0a0e0a'
+              },
+              terminal: {
+                green: '#00ff00',
+                'green-dim': '#00cc00',
+                amber: '#ffb000',
+                cyan: '#00ffff',
+                magenta: '#ff00ff',
+              },
+              retro: {
+                bg: '#0a0e0a',
+                'bg-light': '#1a1e1a',
+                text: '#00ff00',
+                'text-dim': '#00aa00',
+                border: '#003300',
+                accent: '#00ff00',
+              },
+              light: {
+                primary: '#10b981',
+                secondary: '#6366f1',
+                accent: '#f59e0b',
+                surface: '#ffffff',
+                border: '#e5e7eb',
+              }
+            },
+            fontFamily: {
+              mono: ['Space Mono', 'IBM Plex Mono', 'Noto Sans SC', 'monospace'],
+              sans: ['IBM Plex Mono', 'Noto Sans SC', 'monospace'],
+            },
+            keyframes: {
+              blink: {
+                '0%, 50%': { opacity: '1' },
+                '51%, 100%': { opacity: '0' },
+              },
+              flicker: {
+                '0%, 100%': { opacity: '0.98' },
+                '50%': { opacity: '1' },
+              },
+            },
+            animation: {
+              blink: 'blink 1s step-end infinite',
+              flicker: 'flicker 0.15s ease-in-out infinite',
+            },
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        font-family: 'IBM Plex Mono', 'Noto Sans SC', monospace;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        transition: background-color 0.3s ease;
+        letter-spacing: 0.02em;
+      }
+
+      .font-mono {
+        font-family: 'Space Mono', 'IBM Plex Mono', 'Noto Sans SC', monospace;
+        letter-spacing: 0.05em;
+      }
+
+      /* Retro CRT Effect */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 255, 0, 0.03) 0px,
+          rgba(0, 255, 0, 0.03) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        z-index: 9999;
+        animation: scanlines 8s linear infinite;
+      }
+
+      @keyframes scanlines {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(4px); }
+      }
+
+      /* Retro glow effect */
+      .retro-glow {
+        text-shadow:
+          0 0 2px currentColor,
+          0 0 4px currentColor,
+          0 0 8px currentColor;
+      }
+
+      /* Terminal-style border */
+      .terminal-border {
+        box-shadow:
+          inset 0 0 0 1px rgba(0, 255, 0, 0.1),
+          0 0 10px rgba(0, 255, 0, 0.05);
+      }
+
+      /* Custom Scrollbar - Terminal style */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 255, 0, 0.05);
+        border-left: 1px solid rgba(0, 255, 0, 0.1);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 255, 0, 0.2);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 255, 0, 0.3);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+      }
+
+      /* Selection color - retro green */
+      ::selection {
+        background: rgba(0, 255, 0, 0.3);
+        color: #00ff00;
+      }
+
+      /* Input focus glow */
+      input:focus, textarea:focus, button:focus {
+        outline: none;
+        box-shadow:
+          0 0 0 2px rgba(0, 255, 0, 0.2),
+          0 0 10px rgba(0, 255, 0, 0.1);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body class="bg-background-light dark:bg-background-dark text-zinc-900 dark:text-zinc-100">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

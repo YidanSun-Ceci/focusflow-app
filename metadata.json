@@ -1,0 +1,5 @@
+{
+  "name": "FocusFlow",
+  "description": "A minimalist, macOS-style productivity app featuring deep focus timers, AI-driven analytics, and seamless command palette integration.",
+  "requestFramePermissions": []
+}
