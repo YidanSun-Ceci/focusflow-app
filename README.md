@@ -79,7 +79,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/focusflow.git
+git clone https://github.com/YidanSun-Ceci/focusflow-app.git
 
 # Navigate to the project directory
 cd focusflow
