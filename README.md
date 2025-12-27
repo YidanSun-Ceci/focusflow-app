@@ -347,8 +347,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Have questions or suggestions? Feel free to reach out!
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/focusflow/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/focusflow/discussions)
+- **Issues**: [GitHub Issues](https://github.com/YidanSun-Ceci/focusflow-app/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/YidanSun-Ceci/focusflow-app/discussions)
 
 ---
 
